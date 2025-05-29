@@ -1,0 +1,36 @@
+<div class="event-container">
+    <div class="image-container">
+        <img src="/images/agri2.jpg" alt="About Us Image">
+    </div>
+    <div class="text-container">
+        <h2>KrishiSahyog </h2>
+        <p>farmers who provides food to us which is an
+            essential resource for human beings.Our project aims to educate farmers
+            against the fraud that happens with them by bank or landlords or
+            anyother land disputes.</p>
+        <p>It is necessary for them to know what to do in a
+            situation and to hav e regular checks on what going around them. This will
+            help them in connecting with right person to get right solution.</p>
+        
+    </div>
+    <div class="latest-events">
+    <ul class="event-ul">
+        <% data.forEach(event => { %>
+         
+        
+        <li>
+            <a href="/event/<%= event._id %>" >
+                <span><%= event.title %></span>
+                <span class="event-list__date"><%= event.happenedAt.toDateString() %></span>
+            </a>
+        </li>
+        <% }) %>
+
+
+
+
+    </ul>
+</div>
+</div>
+<!-- Weather component -->
+ 

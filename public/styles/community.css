@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  /* max-height: 600px; */
+  width: 100%;
+  background-color: hsla(200,40%,30%,.4);
+  background-image:   
+    url('https://78.media.tumblr.com/cae86e76225a25b17332dfc9cf8b1121/tumblr_p7n8kqHMuD1uy4lhuo1_540.png'), 
+    url('https://78.media.tumblr.com/66445d34fe560351d474af69ef3f2fb0/tumblr_p7n908E1Jb1uy4lhuo1_1280.png'),
+    url('https://78.media.tumblr.com/8cd0a12b7d9d5ba2c7d26f42c25de99f/tumblr_p7n8kqHMuD1uy4lhuo2_1280.png'),
+    url('https://78.media.tumblr.com/5ecb41b654f4e8878f59445b948ede50/tumblr_p7n8on19cV1uy4lhuo1_1280.png'),
+    url('https://78.media.tumblr.com/28bd9a2522fbf8981d680317ccbf4282/tumblr_p7n8kqHMuD1uy4lhuo3_1280.png');
+  background-repeat: repeat-x;
+  background-position: 
+    0 20%,
+    0 100%,
+    0 50%,
+    0 100%,
+    0 0;
+  background-size: 
+    00px,
+    800px,
+    500px 200px,
+    1000px,
+    400px 260px;
+  animation: 50s para infinite linear;
+}
+body{
+  width: 100%;
+  margin-left: 0px;
+}
+.app-container {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 40px auto;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  
+}
+
+.heading {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: teal; /* Set the text color to be visible on the background */
+  font-family: 'Merriweather', serif;
+  font-weight: 800;
+  /* background-color: #ced4da; */
+}
+
+.community-byhead {
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.create-post-box {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: rgba(248, 249, 250, 0.8); /* Background color with opacity */
+  border: 1px solid #ced4da;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.create-post-box h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.create-post-box input,
+.create-post-box textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.create-post-box input[type="file"]::file-selector-button {
+  background-color: teal;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.create-post-box button {
+  background-color: teal;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.create-post-box button:hover {
+  background-color: darkcyan;
+}
+
+#postsContainer {
+  margin-top: 20px;
+}
+
+.post {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.9); /* Background color with opacity */
+}
+
+.post h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: teal;
+}
+
+.post p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.post img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+}
+
+.fa-heart {
+  color: red;
+}
+
+.love-post {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.post-comments {
+  border-radius: 20px;
+  display: none;
+  padding: 10px;
+}
+
+.post-comment-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .create-post-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+  }
+}
+.like-button {
+  background-color: transparent; /* Transparent background */
+  border: none; /* No border */
+  color: #333; /* Text color */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor */
+  display: flex; /* Flex display to align items */
+  align-items: center; /* Align items vertically */
+}
+
+.like-button i {
+  margin-right: 5px; /* Margin to separate icon from text */
+  color: red; /* Color of the heart icon */
+}
+
+/* Optional: Hover effect */
+.like-button:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+
+
+@keyframes para {
+  100% {
+    background-position: 
+      -5000px 20%,
+      -800px 95%,
+      500px 50%,
+      1000px 100%,
+      400px 0;
+    }
+  }

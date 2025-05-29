@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Posts</title>
+  <link rel="stylesheet" href="/styles/community.css"/>
+
+</head>
+<body>
+  <div class="app-container">
+    <h1 class="heading">Latest Posts on Farmers</h1>
+    <h2 class="community-byhead">KrishiSahyog!</h2>
+
+    <div class="create-post-box">
+      <h2>Create Post</h2>
+      <form id="postForm">
+        <input type="text" id="title" placeholder="Title of Post" required>
+        <textarea id="body" placeholder="What inspiration you got from farmers today?" required></textarea>
+        <input type="file" id="photo">
+        <button type="submit">Submit Post</button>
+      </form>
+    </div>
+
+    <div id="postsContainer"></div>
+  </div>
+
+  <script>
+    document.getElementById('postForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const title = document.getElementById('title').value;
+      const body = document.getElementById('body').value;
+      const photoFile = document.getElementById('photo').files[0];
+      let photoURL = '';
+
+      if (photoFile) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          photoURL = e.target.result;
+          savePost(title, body, photoURL);
+        }
+        reader.readAsDataURL(photoFile);
+      } else {
+        savePost(title, body, photoURL);
+      }
+    });
+
+    function savePost(title, body, photoURL) {
+      const posts = JSON.parse(localStorage.getItem('posts')) || [];
+      const newPost = {
+        id: Date.now(),
+        title,
+        body,
+        photo: photoURL,
+        likes: 0
+      };
+      posts.push(newPost);
+      localStorage.setItem('posts', JSON.stringify(posts));
+      document.getElementById('postForm').reset();
+      fetchPosts();
+    }
+
+    function fetchPosts() {
+      const posts = JSON.parse(localStorage.getItem('posts')) || [];
+      const postsContainer = document.getElementById('postsContainer');
+      postsContainer.innerHTML = '';
+
+      posts.forEach(post => {
+        const postElement = document.createElement('div');
+        postElement.className = 'post';
+        postElement.innerHTML = `
+          <h2>${post.title}</h2>
+          <p>${post.body}</p>
+          ${post.photo ? `<img src="${post.photo}" alt="Post Image">` : ''}
+          <button onclick="likePost(${post.id})" class="like-button" >❤️(${post.likes})</button>
+        `;
+        postsContainer.appendChild(postElement);
+      });
+    }
+
+    function likePost(postId) {
+      const posts = JSON.parse(localStorage.getItem('posts')) || [];
+      const postIndex = posts.findIndex(post => post.id === postId);
+      if (postIndex !== -1) {
+        posts[postIndex].likes += 1;
+        localStorage.setItem('posts', JSON.stringify(posts));
+        fetchPosts();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchPosts);
+  </script>
+</body>
+</html>

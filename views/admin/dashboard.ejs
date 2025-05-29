@@ -1,0 +1,46 @@
+
+<div class="admin-title">
+    <h1>KrishiSahyog</h1>
+        <a href="/add-Post" class="button">+Add New Report</a>
+</div>
+<div class="reports-container">
+  <div class="reports-box">
+    <h2>Your Reports</h2>
+    <% if (userReports.length > 0) { %>
+        <% userReports.forEach(report => { %>
+            <li>
+                <a href="/post/<%= report._id%>">
+                    <%= report.title%> &nearr;
+                    </a>
+                    <div class="admin-post-controls">
+                        <a href="/edit-post/<%= report._id%>" class="btn">Edit</a>
+                        <form action="/delete-post/<%= report._id%>?_method=DELETE" method="POST" >
+                            <input type="submit" value="Delete" class="btn-delete btn">
+                            </form>
+                        </div>
+                </li>
+        <% }); %>
+      <% } else { %>
+        <p>No reports to display.</p>
+      <% } %>
+  </div>
+ <div class="reports-box">
+  <h2>Other Users' Reports</h2>
+  <% if (otherReports.length > 0) { %>
+    <% otherReports.forEach(report => { %>
+        <li>
+            <a href="/post/<%= report._id%>">
+                <%= report.title%> &nearr;
+                </a>
+               
+            </li>
+    <% }); %>
+  <% } else { %>
+    <p>No reports to display.</p>
+  <% } %>
+ </div>
+</div>
+          
+
+
+
