@@ -40,9 +40,6 @@
   
 </div>
 
-## Inspiration
-The inspiration behind KrishiSahyog stems from the urgent need to combat agricultural fraud, which severely impacts farmers globally, especially those in rural areas with limited resources and access to information. The platform aims to empower farmers by providing a safe space to report incidents of fraud anonymously and to access educational resources that enhance their awareness and ability to prevent such fraudulent activities.
-
 ## What it does
 KrishiSahyog is a web application that allows farmers to register and authenticate themselves. Once authenticated, farmers can create public posts detailing incidents of agricultural fraud, including types like counterfeit inputs, deceptive marketing, and land disputes. These posts include relevant details such as location, date, and supporting evidence (photos, documents). The platform ensures anonymity, protecting farmers from potential reprisals.
 
@@ -57,9 +54,6 @@ Authentication mechanisms and CRUD operations are implemented to allow farmers t
 
 ## Challenges I ran into
 Developing robust anonymity features while ensuring usability and security posed significant challenges. Integrating authentication and authorization mechanisms seamlessly within the application was crucial to maintaining trust and reliability among users. Additionally, setting up an SMTP client to forward the reports to the authorities and follow up with them was challenging.
-
-## Accomplishments that I'm proud of
-I am proud to have created a platform that not only addresses the pressing issue of agricultural fraud but also empowers farmers with the tools and resources they need to protect themselves and their communities. The emphasis on anonymity and community-building fosters a supportive environment where farmers can share their experiences without fear.
 
 ## What I learned
 Through building KrishiSahyog, I gained valuable insights into the complexities of agricultural fraud and the specific challenges faced by farmers in reporting such incidents. I also deepened my understanding of developing secure and user-friendly web applications that cater to a diverse user base.
